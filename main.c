@@ -2,6 +2,10 @@
 #include <stdlib.h>
 #include <string.h>
 #include <conio.h>
+#include <windows.h>
+
+HANDLE wHnd;
+HANDLE rHnd;
 
 struct entry {
     char brand[20], productName[50];
@@ -33,7 +37,7 @@ void menu() {
     printf("║         We'll start by adding one entry          ║\n");
     printf("╠══════════════════════════════════════════════════╣\n");
     printf("║        Press any key to start the program        ║\n");
-    printf("╚══════════════════════════════════════════════════╝\n\n\n\n\n\n\n\n\n\n\n\n");
+    printf("╚══════════════════════════════════════════════════╝\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
         for(;;)
            if (kbhit())
@@ -69,7 +73,7 @@ void menu() {
     printf("║                     4. Exit                      ║\n");
     printf("╠══════════════════════════════════════════════════╣\n");
     printf("║Press the key corresponding to your desired action║\n");
-    printf("╚══════════════════════════════════════════════════╝\n\n\n\n\n\n\n\n\n\n\n\n");
+    printf("╚══════════════════════════════════════════════════╝\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
     return;
 
 }
@@ -174,7 +178,7 @@ void adaugare() {
     printf("║               3. After index X                   ║\n");
     printf("╠══════════════════════════════════════════════════╣\n");
     printf("║Press the key corresponding to your desired action║\n");
-    printf("╚══════════════════════════════════════════════════╝\n\n\n\n\n\n\n\n\n\n\n\n");
+    printf("╚══════════════════════════════════════════════════╝\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
     //scanf("%d", &choice);
     for(;;)
            if (kbhit())
@@ -326,7 +330,7 @@ void stergere() {
     printf("║                 4. Product named X               ║\n");
     printf("╠══════════════════════════════════════════════════╣\n");
     printf("║Press the key corresponding to your desired action║\n");
-    printf("╚══════════════════════════════════════════════════╝\n\n\n\n\n\n\n\n\n\n\n\n");
+    printf("╚══════════════════════════════════════════════════╝\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
     //scanf("%d", &choice);
 
     for(;;)
@@ -358,6 +362,12 @@ void stergere() {
 
 int main() {
     int choice;
+    wHnd = GetStdHandle(STD_OUTPUT_HANDLE);
+    rHnd = GetStdHandle(STD_INPUT_HANDLE);
+    SetConsoleTitle("                                          Practice Stage Project");
+    SMALL_RECT windowSize = {0, 0, 53, 40};
+    SetConsoleWindowInfo(wHnd, 1, &windowSize);
+    system ("color B");
     while (1) {
         menu();
 
