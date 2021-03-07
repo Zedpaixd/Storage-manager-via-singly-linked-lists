@@ -3,6 +3,8 @@
 #include <string.h>
 #include <conio.h>
 #include <windows.h>
+#include <time.h>
+#include <unistd.h>
 
 HANDLE wHnd;
 HANDLE rHnd;
@@ -70,7 +72,8 @@ void menu() {
     printf("║                   1. Add entry                   ║\n");
     printf("║                  2. Remove entry                 ║\n");
     printf("║            3. Print current entry list           ║\n");
-    printf("║                     4. Exit                      ║\n");
+    printf("║           4. Write the list into a file          ║\n");
+    printf("║                     5. Exit                      ║\n");
     printf("╠══════════════════════════════════════════════════╣\n");
     printf("║Press the key corresponding to your desired action║\n");
     printf("╚══════════════════════════════════════════════════╝\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
@@ -360,6 +363,14 @@ void stergere() {
 
 }
 
+
+void printToFile()
+{
+    // Have fun
+}
+
+
+
 int main() {
     int choice;
     wHnd = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -390,6 +401,18 @@ int main() {
                 afisare();
                 break;
             case 4:
+                printToFile();
+                break;
+            case 5:
+                system("CLS");
+                printf("Application will now close");
+                Sleep(500);
+                printf(".");
+                Sleep(500);
+                printf(".");
+                Sleep(500);
+                printf(".");
+                Sleep(500);
                 return 0;
             default:
                 printf("Alegere invalida");
