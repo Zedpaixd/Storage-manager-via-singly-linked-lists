@@ -24,7 +24,16 @@ void menu() {
         struct entry tempEntry;
 
         char key;
-        printf("We'll start by adding one entry\n\n\nPress a key to start the program");
+
+    printf("╔══════════════════════════════════════════════════╗\n");
+    printf("║                  Project made by                 ║\n");
+    printf("║              Balint Armand-Alexandru             ║\n");
+    printf("║                Barna Tudor Cristian              ║\n");
+    printf("╠══════════════════════════════════════════════════╣\n");
+    printf("║         We'll start by adding one entry          ║\n");
+    printf("╠══════════════════════════════════════════════════╣\n");
+    printf("║        Press any key to start the program        ║\n");
+    printf("╚══════════════════════════════════════════════════╝\n\n\n\n\n\n\n\n\n\n\n\n");
 
         for(;;)
            if (kbhit())
@@ -53,7 +62,14 @@ void menu() {
         initialized = 1;
     }
     system("CLS");
-    printf("1. Add entry\n2. Remove entry\n3. Print current entry list\n4. Exit\nInput a choice : ");
+    printf("╔══════════════════════════════════════════════════╗\n");
+    printf("║                   1. Add entry                   ║\n");
+    printf("║                  2. Remove entry                 ║\n");
+    printf("║            3. Print current entry list           ║\n");
+    printf("║                     4. Exit                      ║\n");
+    printf("╠══════════════════════════════════════════════════╣\n");
+    printf("║Press the key corresponding to your desired action║\n");
+    printf("╚══════════════════════════════════════════════════╝\n\n\n\n\n\n\n\n\n\n\n\n");
     return;
 
 }
@@ -150,11 +166,15 @@ void adaugare() {
     system("CLS");
     int choice;
 
-    printf("Where should the entry be added?\n\n");
-    printf("1. As the first entry\n");
-    printf("2. As the last entry\n");
-    printf("3. After index X\n");
 
+    printf("╔══════════════════════════════════════════════════╗\n");
+    printf("║         Where should the entry be added?         ║\n");
+    printf("║               1. As the first entry              ║\n");
+    printf("║               2. As the last entry               ║\n");
+    printf("║               3. After index X                   ║\n");
+    printf("╠══════════════════════════════════════════════════╣\n");
+    printf("║Press the key corresponding to your desired action║\n");
+    printf("╚══════════════════════════════════════════════════╝\n\n\n\n\n\n\n\n\n\n\n\n");
     //scanf("%d", &choice);
     for(;;)
            if (kbhit())
@@ -190,7 +210,7 @@ void afisare() {
     int i = 0;
     system("CLS");
     struct nod *p = first;
-    printf("Current entry list: \n");
+    printf("Current entry list: \n\n");
     while (p != NULL) {
         printf("%d. %s, %s, %f, %d\n", ++i, p->data.brand, p->data.productName, p->data.price, p->data.stock);
         p = p->urm;
@@ -298,11 +318,15 @@ void stergere() {
     system("CLS");
     int choice;
 
-    printf("Which entry should be removed?\n\n");
-    printf("1. First entry\n");
-    printf("2. Last entry\n");
-    printf("3. Entry at index X\n");
-    printf("4. Product named \"X\"\n");
+    printf("╔══════════════════════════════════════════════════╗\n");
+    printf("║           Which entry should be removed?         ║\n");
+    printf("║                 1. First entry                   ║\n");
+    printf("║                 2. Last entry                    ║\n");
+    printf("║                 3. Entry at index X              ║\n");
+    printf("║                 4. Product named X               ║\n");
+    printf("╠══════════════════════════════════════════════════╣\n");
+    printf("║Press the key corresponding to your desired action║\n");
+    printf("╚══════════════════════════════════════════════════╝\n\n\n\n\n\n\n\n\n\n\n\n");
     //scanf("%d", &choice);
 
     for(;;)
