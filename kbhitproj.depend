@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1615117864 source:d:\codeblocks\projects\kbhitproj\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<windows.h>
+	<time.h>
+	<unistd.h>
+
+1615118202 source:d:\codeblocks\projects\kbhitproj\icon.rc
+
