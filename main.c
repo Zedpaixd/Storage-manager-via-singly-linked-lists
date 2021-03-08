@@ -73,10 +73,12 @@ void menu() {
     printf("║                  2. Remove entry                 ║\n");
     printf("║            3. Print current entry list           ║\n");
     printf("║           4. Write the list into a file          ║\n");
-    printf("║                     5. Exit                      ║\n");
+    printf("║             5. Remove background color           ║\n");
+    printf("║                     6. Info                      ║\n");
+    printf("║                     7. Exit                      ║\n");
     printf("╠══════════════════════════════════════════════════╣\n");
     printf("║Press the key corresponding to your desired action║\n");
-    printf("╚══════════════════════════════════════════════════╝\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+    printf("╚══════════════════════════════════════════════════╝\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
     return;
 
 }
@@ -367,9 +369,41 @@ void stergere() {
 void printToFile()
 {
     // Have fun
+    system("CLS");
+    printf("WIP");
+    Sleep(1000);
 }
 
+void info()
+{   char key;
 
+    system("CLS");
+    printf("╔══════════════════════════════════════════════════╗\n");
+    printf("║           In this project you can find:          ║\n");
+    printf("║                 1. Structs                       ║\n");
+    printf("║                 2. Linked lists                  ║\n");
+    printf("║                 3. Malloc / pointers             ║\n");
+    printf("║                 4. Use of windows.h              ║\n");
+    printf("║                 5. Console edits                 ║\n");
+    printf("║                 6. Customized executable file    ║\n");
+    printf("║                 7. File usage (WIP)              ║\n");
+    printf("║                 8. Custom console UI             ║\n");
+    printf("║                 9. Keypress detection            ║\n");
+    printf("║                10. Nested function calls         ║\n");
+    printf("╠══════════════════════════════════════════════════╣\n");
+    printf("║   The code can be found on both of our githubs   ║\n");
+    printf("╠══════════════════════════════════════════════════╣\n");
+    printf("║   If you encounter any error, let us know ASAP   ║\n");
+    printf("╠══════════════════════════════════════════════════╣\n");
+    printf("║         Press any key to leave this page         ║\n");
+    printf("╚══════════════════════════════════════════════════╝\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+
+    for(;;)
+           if (kbhit())
+                {key = getch();break;}
+        system("CLS");
+
+}
 
 int main() {
     int choice;
@@ -378,7 +412,8 @@ int main() {
     SetConsoleTitle("                                          Practice Stage Project");
     SMALL_RECT windowSize = {0, 0, 53, 40};
     SetConsoleWindowInfo(wHnd, 1, &windowSize);
-    system ("color B");
+    system ("color 8B");
+
     while (1) {
         menu();
 
@@ -404,6 +439,12 @@ int main() {
                 printToFile();
                 break;
             case 5:
+                system ("color B");
+                break;
+            case 6:
+                info();
+                break;
+            case 7:
                 system("CLS");
                 printf("Application will now close");
                 Sleep(500);
