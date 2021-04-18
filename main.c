@@ -31,21 +31,19 @@ void menu() {
 
         char key;
 
-        printf("╔══════════════════════════════════════════════════╗\n");
-        printf("║                  Project made by                 ║\n");
-        printf("║              Balint Armand-Alexandru             ║\n");
-        printf("║                Barna Tudor Cristian              ║\n");
-        printf("╠══════════════════════════════════════════════════╣\n");
-        printf("║         We'll start by adding one entry          ║\n");
-        printf("╠══════════════════════════════════════════════════╣\n");
-        printf("║        Press any key to start the program        ║\n");
-        printf("╚══════════════════════════════════════════════════╝\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+    printf("╔══════════════════════════════════════════════════╗\n");
+    printf("║                  Project made by                 ║\n");
+    printf("║              Balint Armand-Alexandru             ║\n");
+    printf("║                Barna Tudor Cristian              ║\n");
+    printf("╠══════════════════════════════════════════════════╣\n");
+    printf("║         We'll start by adding one entry          ║\n");
+    printf("╠══════════════════════════════════════════════════╣\n");
+    printf("║        Press any key to start the program        ║\n");
+    printf("╚══════════════════════════════════════════════════╝\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
-        for (;;)
-            if (kbhit()) {
-                key = getch();
-                break;
-            }
+        for(;;)
+           if (kbhit())
+                {key = getch();break;}
         system("CLS");
 
         printf("Add a first entry:\n");
@@ -105,7 +103,6 @@ void addFirst() {
 }
 
 void addLast() {
-    printf("first!=last");
     system("CLS");
     struct entry tempEntry;
     printf("Brand:");
@@ -121,14 +118,8 @@ void addLast() {
     struct nod *p = (struct nod *) malloc(sizeof(struct nod));
     p->data = tempEntry;
     p->urm = NULL;
-    if (nrElem != 0) {
-        last->urm = p;
-        last = p;
-    } else {
-        first = p;
-        last = p;
-    }
-
+    last->urm = p;
+    last = p;
 }
 
 void addPosition() {
@@ -137,12 +128,11 @@ void addPosition() {
     printf("Which position should the entry be placed after?[0-%d]\n", nrElem);
     //scanf("%d", &index);
 
-    for (;;)
-        if (kbhit()) {
-            index = getch();
-            break;
-        }
-    index = (int) index - 48;
+    for(;;)
+           if (kbhit())
+                {index = getch();
+                break;}
+        index = (int)index-48;
 
 
     if (index < 0 || index > nrElem) {
@@ -195,13 +185,12 @@ void adaugare() {
     printf("║Press the key corresponding to your desired action║\n");
     printf("╚══════════════════════════════════════════════════╝\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
     //scanf("%d", &choice);
-    for (;;)
-        if (kbhit()) {
-            choice = getch();
-            break;
-        }
-    choice = (int) choice - 48;
-    fflush(stdin);
+    for(;;)
+           if (kbhit())
+                {choice = getch();
+                break;}
+        choice = (int)choice-48;
+        fflush(stdin);
 
     switch (choice) {
         case 1:
@@ -250,26 +239,25 @@ void stergPrim() {
 void stergUlt() {
     if (nrElem == 0) return;
 
-    if (nrElem == 1) {
-        stergPrim();
-		  
-	} 
-	else {
+    if (nrElem == 1)
+        {stergPrim();
+         }
+
+    else{
         if (last != NULL)
             nrElem--;
         struct nod *p = first;
         while (p->urm != last) {
             p = p->urm;
         }
-				   
+    //hangs up here
         struct nod *q = last;
         p->urm = NULL;
         last = p;
         free(q);
 
-    }
 }
-
+}
 void stergPosi() {
     if (nrElem == 0) return;
     system("CLS");
@@ -277,12 +265,11 @@ void stergPosi() {
     printf("Insert the index of the entry you wish removed [1-%d]:\n", nrElem);
     //scanf("%d", &index);
 
-    for (;;)
-        if (kbhit()) {
-            index = getch();
-            break;
-        }
-    index = (int) index - 48;
+    for(;;)
+           if (kbhit())
+                {index = getch();
+                break;}
+        index = (int)index-48;
 
     if (index < 1 || index > nrElem) {
         printf("Invalid Choice");
@@ -351,12 +338,11 @@ void stergere() {
     printf("╚══════════════════════════════════════════════════╝\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
     //scanf("%d", &choice);
 
-    for (;;)
-        if (kbhit()) {
-            choice = getch();
-            break;
-        }
-    choice = (int) choice - 48;
+    for(;;)
+           if (kbhit())
+                {choice = getch();
+                break;}
+        choice = (int)choice-48;
 
     switch (choice) {
         case 1:
@@ -380,16 +366,28 @@ void stergere() {
 }
 
 
-void printToFile() {
- 
+void printToFile()
+{
     // Have fun
     system("CLS");
-    printf("WIP");
+    FILE *fileptr;
+    fileptr = fopen("output.txt","w");
+
+    int i = 0;
+    struct nod *p = first;
+    fprintf(fileptr,"Current entry list: \n\n");
+    while (p != NULL) {
+        fprintf(fileptr,"%d. %s, %s, %f, %d\n", ++i, p->data.brand, p->data.productName, p->data.price, p->data.stock);
+        p = p->urm;
+    }
+    fclose(fileptr);
+
+    printf("Done");
     Sleep(1000);
 }
 
-void info() {
-    char key;
+void info()
+{   char key;
 
     system("CLS");
     printf("╔══════════════════════════════════════════════════╗\n");
@@ -400,7 +398,7 @@ void info() {
     printf("║                 4. Use of windows.h              ║\n");
     printf("║                 5. Console edits                 ║\n");
     printf("║                 6. Customized executable file    ║\n");
-    printf("║                 7. File usage (WIP)              ║\n");
+    printf("║                 7. File usage                    ║\n");
     printf("║                 8. Custom console UI             ║\n");
     printf("║                 9. Keypress detection            ║\n");
     printf("║                10. Nested function calls         ║\n");
@@ -412,12 +410,10 @@ void info() {
     printf("║         Press any key to leave this page         ║\n");
     printf("╚══════════════════════════════════════════════════╝\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
-    for (;;)
-        if (kbhit()) {
-            key = getch();
-            break;
-        }
-    system("CLS");
+    for(;;)
+           if (kbhit())
+                {key = getch();break;}
+        system("CLS");
 
 }
 
@@ -428,17 +424,16 @@ int main() {
     SetConsoleTitle("                                          Practice Stage Project");
     SMALL_RECT windowSize = {0, 0, 53, 40};
     SetConsoleWindowInfo(wHnd, 1, &windowSize);
-    system("color 8B");
+    system ("color 8B");
 
     while (1) {
         menu();
 
-        for (;;)
-            if (kbhit()) {
-                choice = getch();
-                break;
-            }
-        choice = (int) choice - 48;
+        for(;;)
+           if (kbhit())
+                {choice = getch();
+                break;}
+        choice = (int)choice-48;
         fflush(stdin);
 
         //scanf("%d", &choice);
@@ -456,7 +451,7 @@ int main() {
                 printToFile();
                 break;
             case 5:
-                system("color B");
+                system ("color B");
                 break;
             case 6:
                 info();
