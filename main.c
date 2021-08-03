@@ -32,9 +32,6 @@ void menu() {
         char key;
 
     printf("╔══════════════════════════════════════════════════╗\n");
-    printf("║                  Project made by                 ║\n");
-    printf("║              Balint Armand-Alexandru             ║\n");
-    printf("║                Barna Tudor Cristian              ║\n");
     printf("╠══════════════════════════════════════════════════╣\n");
     printf("║         We'll start by adding one entry          ║\n");
     printf("╠══════════════════════════════════════════════════╣\n");
